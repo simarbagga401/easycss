@@ -9,8 +9,8 @@ const socket_1 = require("./socket");
 // App configurations
 const app = express_1.default();
 app.use(cors_1.default());
-const port = 3001;
-const server = app.listen(port, () => console.log(`app listening ${port}`));
+const port = process.env.PORT || 3001;
+const server = app.listen(port, () => console.log(`app listening at ${port}`));
 const socketCorsObject = {
     cors: {
         origin: '*',
@@ -20,7 +20,7 @@ const socketCorsObject = {
 const io = require('socket.io')(server, socketCorsObject);
 // Testing route
 app.get('/', (req, res) => {
-    res.send('hello from express server');
+    res.send('Read Documentation for something at https://something.dev');
 });
 // Socket Connection
 io.sockets.on('connection', (connection) => {

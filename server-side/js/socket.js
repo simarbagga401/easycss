@@ -7,13 +7,9 @@ const handleSocket = (connection) => {
         _id: connection.id,
         msg: 'websocket server connected',
     });
-    connection.on('changeColor', ({ elementSelector, type, value }) => {
-        console.log(value);
-        writeStyle_1.changeColor({ elementSelector, type, value });
-    });
-    connection.on('changeSize', ({ elementSelector, type, value }) => {
-        console.log(value);
-        writeStyle_1.changeSize({ elementSelector, type, color });
+    connection.on('styleRequest', (data) => {
+        console.log(data);
+        writeStyle_1.changeStyle(data);
     });
 };
 exports.handleSocket = handleSocket;

@@ -1,4 +1,5 @@
 import './styles/some.scss';
+import './styles/app.scss';
 import './socket.ts';
 
 document.querySelector('#app').innerHTML = `

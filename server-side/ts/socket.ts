@@ -1,26 +1,15 @@
 import { Socket } from 'socket.io';
-import { ColorRequest, BoxModelRequest } from './interfaces';
-import { changeColor, changeSize } from './writeStyle';
+import { SocketStyleRequest } from './interfaces/index.interfaces';
+import { changeStyle } from './writeStyle';
 
-export const handleSocket = (connection: Socket) => {
+export const handleSocket = (connection: Socket): void => {
   connection.emit('serverConnected', {
     _id: connection.id,
     msg: 'websocket server connected',
   });
 
-  connection.on(
-    'changeColor',
-    ({ elementSelector, type, value }: ColorRequest) => {
-      console.log(value);
-      changeColor({ elementSelector, type, value });
-    },
-  );
-
-  connection.on(
-    'changeSize',
-    ({ elementSelector, type, value }: BoxModelRequest) => {
-      console.log(value);
-      changeSize({ elementSelector, type, color });
-    },
-  );
+  connection.on('styleRequest', (data: SocketStyleRequest) => {
+    console.log(data);
+    changeStyle(data);
+  });
 };

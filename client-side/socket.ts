@@ -1,4 +1,4 @@
-import { ColorRequest } from './interfaces';
+import { ColorRequest } from './interfaces/interfaces';
 
 export const socket = io.connect('http://localhost:3001');
 const btn = document.querySelector('.btn');
