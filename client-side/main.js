@@ -1,5 +1,6 @@
 import './styles/some.scss';
 import './styles/app.scss';
+import './styles/style.scss';
 
 document.querySelector('#app').innerHTML = `
   <h1>Hello Vite!</h1>
