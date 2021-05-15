@@ -1,12 +1,15 @@
 import fs from 'fs';
-import { SocketStyleRequest } from './interfaces/index.interfaces';
+import { StyleRequest } from './interfaces/index.interfaces';
 
 export const changeStyle = ({
   element,
   property,
   value,
-}: SocketStyleRequest): void => {
-  const data = `${element} { ${property}:${value} }`;
+}: StyleRequest): void => {
+  const data = `
+${element} {
+  ${Object.values(property)[0]}: ${value};
+}`;
 
   if (data) {
     fs.appendFile('../client-side/styles/some.scss', data, (err) => {

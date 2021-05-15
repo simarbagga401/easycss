@@ -28,6 +28,4 @@ export interface CssProperties
     CssColor,
     CssFlex,
     CssFont,
-    CssFont {
-  border: 'border';
-}
+    CssFont {}

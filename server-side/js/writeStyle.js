@@ -6,7 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.changeStyle = void 0;
 const fs_1 = __importDefault(require("fs"));
 const changeStyle = ({ element, property, value, }) => {
-    const data = `${element} { ${property}:${value} }`;
+    const data = `
+${element} {
+  ${Object.values(property)[0]}: ${value};
+}`;
     if (data) {
         fs_1.default.appendFile('../client-side/styles/some.scss', data, (err) => {
             if (err)
