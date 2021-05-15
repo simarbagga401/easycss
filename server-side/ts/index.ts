@@ -17,8 +17,9 @@ app.get('/', (req: express.Request, res: express.Response) => {
 });
 
 app.post('/styleRequest', (req: express.Request, res: express.Response) => {
-  const { element, property, value }: StyleRequest = req.body.styleRequestData;
   console.log(req.body);
+  const { style, filePath }: StyleRequest = req.body.styleRequestData;
+
   res.send('thank you');
-  changeStyle({ element, property, value });
+  changeStyle({ style, filePath });
 });

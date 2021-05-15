@@ -1,18 +1,15 @@
 import fs from 'fs';
 import { StyleRequest } from './interfaces/index.interfaces';
 
-export const changeStyle = ({
-  element,
-  property,
-  value,
-}: StyleRequest): void => {
+export const changeStyle = ({ style, filePath }: StyleRequest): void => {
+  // dynamic template for a style.
   const data = `
-${element} {
-  ${Object.values(property)[0]}: ${value};
+${style.element} {
+  ${Object.values(style.property)[0]}: ${style.value};
 }`;
 
   if (data) {
-    fs.appendFile('../client-side/styles/some.scss', data, (err) => {
+    fs.appendFile(`../client-side/${filePath}`, data, (err) => {
       if (err) console.error(err);
     });
   } else {

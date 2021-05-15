@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleSocket = void 0;
 const writeStyle_1 = require("./writeStyle");
+// test
 const handleSocket = (connection) => {
     connection.emit('serverConnected', {
         _id: connection.id,

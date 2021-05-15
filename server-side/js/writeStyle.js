@@ -5,13 +5,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.changeStyle = void 0;
 const fs_1 = __importDefault(require("fs"));
-const changeStyle = ({ element, property, value, }) => {
+const changeStyle = ({ style, filePath }) => {
+    // dynamic template for a style.
     const data = `
-${element} {
-  ${Object.values(property)[0]}: ${value};
+${style.element} {
+  ${Object.values(style.property)[0]}: ${style.value};
 }`;
     if (data) {
-        fs_1.default.appendFile('../client-side/styles/some.scss', data, (err) => {
+        fs_1.default.appendFile(`../client-side/${filePath}`, data, (err) => {
             if (err)
                 console.error(err);
         });

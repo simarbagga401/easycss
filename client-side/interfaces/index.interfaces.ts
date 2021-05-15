@@ -5,7 +5,10 @@ type htmlElement = string;
 type htmlId = string;
 
 export interface StyleRequest {
-  element: htmlClass | htmlElement | htmlId;
-  property: CssProperties;
-  value: string | number;
+  style: {
+    element: htmlClass | htmlElement | htmlId;
+    property: CssProperties;
+    value: string | number;
+  };
+  filePath: string;
 }

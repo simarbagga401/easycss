@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
     res.send('Read Documentation for something at https://something.dev');
 });
 app.post('/styleRequest', (req, res) => {
-    const { element, property, value } = req.body.styleRequestData;
     console.log(req.body);
+    const { style, filePath } = req.body.styleRequestData;
     res.send('thank you');
-    writeStyle_1.changeStyle({ element, property, value });
+    writeStyle_1.changeStyle({ style, filePath });
 });
