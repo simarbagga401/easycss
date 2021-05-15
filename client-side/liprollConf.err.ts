@@ -5,5 +5,3 @@ export function checkDefaultFilePath(defaultFilePath) {
     );
   }
 }
-
-export function checkLiprollConf() {}

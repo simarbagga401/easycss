@@ -8,7 +8,7 @@ document.querySelector('#app').innerHTML = `
 `;
 
 import axios from 'axios';
-import { styleRequestData } from './data';
+import { styleRequestData, styleRequestData2 } from './data';
 
 const btn = document.querySelector('.btn');
 btn.addEventListener('click', async () => {
@@ -18,8 +18,18 @@ btn.addEventListener('click', async () => {
     });
     console.log(req.data);
   } catch (error) {
-    if (error.code === 500) {
-      console.error('Axios 500 error: Unexpected data recieved', error);
-    }
+    console.error(error);
+  }
+});
+
+const btn2 = document.querySelector('.btn2');
+btn2.addEventListener('click', async () => {
+  try {
+    const req = await axios.post('http://localhost:2000/styleRequest', {
+      styleRequestData: styleRequestData2,
+    });
+    console.log(req.data);
+  } catch (error) {
+    console.error(error);
   }
 });

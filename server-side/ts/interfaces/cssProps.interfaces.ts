@@ -28,4 +28,6 @@ export interface CssProperties
     CssColor,
     CssFlex,
     CssFont,
-    CssFont {}
+    CssFont {
+  custom?: string;
+}
